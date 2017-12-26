@@ -1,7 +1,16 @@
 package reciclar.victorsampaio.com.br.reciclar;
 
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.FragmentActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -10,19 +19,113 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import reciclar.victorsampaio.com.br.reciclar.adapter.ImageAdapter;
+
 public class MapsActivity extends FragmentActivity
         implements OnMapReadyCallback {
 
+    @BindView(R.id.navigation)
+    BottomNavigationView navigation;
+    @BindView(R.id.relativeMap)
+    RelativeLayout relativeMap;
+    Toolbar toolbar;
+    @BindView(R.id.gridview)
+    GridView gridview;
+    @BindView(R.id.realtive_recycle_tips)
+    RelativeLayout relativeRecycleTips;
+    @BindView(R.id.realtive_contacts)
+    RelativeLayout relativeContacts;
+
+    SupportMapFragment mapFragment;
+
     private GoogleMap mMap, mapEcoPointVarjota, mapEcoPointConjuntoCeara;
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.navigation_home:
+                    // startMap();
+                    Toast.makeText(getApplicationContext(), "Tela 1", Toast.LENGTH_SHORT).show();
+
+                    relativeMap.setVisibility(View.VISIBLE);
+                    relativeContacts.setVisibility(View.INVISIBLE);
+                    relativeRecycleTips.setVisibility(View.INVISIBLE);
+                    return true;
+                case R.id.navigation_dashboard:
+                    //pauseMap();
+                    Toast.makeText(getApplicationContext(), "Tela 2", Toast.LENGTH_SHORT).show();
+
+                    relativeMap.setVisibility(View.INVISIBLE);
+                    relativeContacts.setVisibility(View.INVISIBLE);
+                    relativeRecycleTips.setVisibility(View.VISIBLE);
+                    configScreen();
+                    return true;
+                case R.id.navigation_notifications:
+
+                    relativeMap.setVisibility(View.INVISIBLE);
+                    relativeRecycleTips.setVisibility(View.INVISIBLE);
+                    relativeContacts.setVisibility(View.VISIBLE);
+                    Toast.makeText(getApplicationContext(), "Tela 3", Toast.LENGTH_SHORT).show();
+                    //mTextMessage.setText(R.string.title_notifications);
+                    return true;
+            }
+            return false;
+        }
+    };
+
+    private void configScreen() {
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        ButterKnife.bind(this);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+        // BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
+
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        gridview.setAdapter(new ImageAdapter(this));
+
+        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v,
+                                    int position, long id) {
+                Toast.makeText(MapsActivity.this, "" + position,
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void startMap() {
+        /*mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+        mapFragment.setMenuVisibility(true);*/
+        relativeMap.setVisibility(View.VISIBLE);
+        relativeContacts.setVisibility(View.INVISIBLE);
+        relativeRecycleTips.setVisibility(View.INVISIBLE);
+    }
+
+
+    private void pauseMap() {
+       /* mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+       */
+        relativeMap.setVisibility(View.INVISIBLE);
+       /* mapFragment.setUserVisibleHint(false);
+        mapFragment.setMenuVisibility(false);*/
+
     }
 
 
@@ -45,6 +148,10 @@ public class MapsActivity extends FragmentActivity
         LatLng fortaleza = new LatLng(-3.7543317, -38.5728786);
         //mMap.addMarker(new MarkerOptions().position(fortaleza).title("Marker in FORTALEZA"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(fortaleza));
+        mMap.animateCamera(CameraUpdateFactory.zoomIn());
+        // Zoom out to zoom level 10, animating with a duration of 2 seconds.
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(11), 2000, null);
+
 
         LatLng varjota = new LatLng(-3.731124, -38.483022);
         mapEcoPointVarjota.addMarker(new MarkerOptions().position(varjota).title("Ecoponto Varjota"));
