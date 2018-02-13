@@ -45,7 +45,7 @@ public class MapsActivity extends FragmentActivity
     SupportMapFragment mapFragment;
 
     private GoogleMap mMap, ecoPointVarjota, ecoPointConjuntoCeara, ecoPGuararapes,
-            ecoPAdvogadoMarcoAntonioForte, ecoPCidadeDosFuncionários, ecoSaoJoaoTauape;
+            ecoPAdvogadoMarcoAntonioForte, ecoPCidadeDosFuncionários, ecoSaoJoaoTauape, ecoJacarecanga;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -152,6 +152,7 @@ public class MapsActivity extends FragmentActivity
         ecoPAdvogadoMarcoAntonioForte = googleMap;
         ecoPCidadeDosFuncionários = googleMap;
         ecoSaoJoaoTauape = googleMap;
+        ecoJacarecanga = googleMap;
 
         // Add a marker in Sydney and move the camera
         LatLng fortaleza = new LatLng(-3.7543317, -38.5728786);
@@ -182,6 +183,10 @@ public class MapsActivity extends FragmentActivity
 
         LatLng saoJoaoTauape = new LatLng(-3.7515811, -38.5207439);
         ecoSaoJoaoTauape.addMarker(new MarkerOptions().position(saoJoaoTauape).title("Ecoponto São João do Tauape"));
+
+        LatLng jacarecanga = new LatLng(-3.7515811, -38.5207439);
+        ecoJacarecanga.addMarker(new MarkerOptions().position(jacarecanga).title("Ecoponto Jacarecanga"));
+
 
     }
 }
