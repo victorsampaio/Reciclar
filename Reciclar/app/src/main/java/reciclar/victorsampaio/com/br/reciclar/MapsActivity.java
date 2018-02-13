@@ -23,6 +23,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import reciclar.victorsampaio.com.br.reciclar.adapter.ImageAdapter;
 
+/**@version Inicial developer branch */
+
 public class MapsActivity extends FragmentActivity
         implements OnMapReadyCallback {
 
@@ -167,7 +169,7 @@ public class MapsActivity extends FragmentActivity
         // MAP_TYPE_TERRAIN, MAP_TYPE_HYBRID and MAP_TYPE_NONE
 
 
-        LatLng guararapes =new LatLng(-3.7543317, -38.5728786);
+        LatLng guararapes = new LatLng(-3.7543317, -38.5728786);
         ecoPGuararapes.addMarker(new MarkerOptions().position(guararapes).title("Ecoponto Guararapes"));
 
         LatLng advogadoMarcoAntonioForte = new LatLng(-3.7739257, -38.4753871);
