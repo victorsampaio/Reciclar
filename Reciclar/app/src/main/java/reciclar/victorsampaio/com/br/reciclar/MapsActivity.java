@@ -45,7 +45,7 @@ public class MapsActivity extends FragmentActivity
     SupportMapFragment mapFragment;
 
     private GoogleMap mMap, ecoPointVarjota, ecoPointConjuntoCeara, ecoPGuararapes,
-            ecoPAdvogadoMarcoAntonioForte, ecoPCidadeDosFuncionários, ecoSaoJoaoTauape, ecoJacarecanga, ecoSerrinha;
+            ecoPAdvogadoMarcoAntonioForte, ecoPCidadeDosFuncionários, ecoSaoJoaoTauape, ecoJacarecanga, ecoSerrinha, ecoConjEsperanca;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -153,6 +153,8 @@ public class MapsActivity extends FragmentActivity
         ecoPCidadeDosFuncionários = googleMap;
         ecoSaoJoaoTauape = googleMap;
         ecoJacarecanga = googleMap;
+        ecoSerrinha = googleMap;
+        ecoConjEsperanca = googleMap;
 
         // Add a marker in Sydney and move the camera
         LatLng fortaleza = new LatLng(-3.7543317, -38.5728786);
@@ -188,11 +190,11 @@ public class MapsActivity extends FragmentActivity
         ecoJacarecanga.addMarker(new MarkerOptions().position(jacarecanga).title("Ecoponto Jacarecanga"));
 
         LatLng serrinha = new LatLng(-3.7822994, -38.542956);
-        ecoSerrinha.addMarker(new MarkerOptions().position(serrinha).title("Ecoponto Jacarecanga"));
+        ecoSerrinha.addMarker(new MarkerOptions().position(serrinha).title("Ecoponto Serrinha"));
 
 
-        LatLng jacarecanga = new LatLng(-3.7515811, -38.5207439);
-        ecoJacarecanga.addMarker(new MarkerOptions().position(jacarecanga).title("Ecoponto Jacarecanga"));
+        LatLng conjEsperança = new LatLng(-3.7515811, -38.5207439);
+        ecoConjEsperanca.addMarker(new MarkerOptions().position(conjEsperança).title("Ecoponto Conjunto Esperança"));
 /*
         LatLng jacarecanga = new LatLng(-3.7515811, -38.5207439);
         ecoJacarecanga.addMarker(new MarkerOptions().position(jacarecanga).title("Ecoponto Jacarecanga"));
