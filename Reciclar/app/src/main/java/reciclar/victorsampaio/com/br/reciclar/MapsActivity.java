@@ -23,7 +23,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import reciclar.victorsampaio.com.br.reciclar.adapter.ImageAdapter;
 
-/**@version Inicial developer branch */
+/**
+ * @version Inicial developer branch
+ */
 
 public class MapsActivity extends FragmentActivity
         implements OnMapReadyCallback {
@@ -42,8 +44,8 @@ public class MapsActivity extends FragmentActivity
 
     SupportMapFragment mapFragment;
 
-    private GoogleMap mMap, mapEcoPointVarjota, mapEcoPointConjuntoCeara, ecoPGuararapes,
-            ecoPAdvogadoMarcoAntonioForte, ecoPCidadeDosFuncionários;
+    private GoogleMap mMap, ecoPointVarjota, ecoPointConjuntoCeara, ecoPGuararapes,
+            ecoPAdvogadoMarcoAntonioForte, ecoPCidadeDosFuncionários, ecoSaoJoaoTauape;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -144,11 +146,12 @@ public class MapsActivity extends FragmentActivity
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        mapEcoPointVarjota = googleMap;
-        mapEcoPointConjuntoCeara = googleMap;
+        ecoPointVarjota = googleMap;
+        ecoPointConjuntoCeara = googleMap;
         ecoPGuararapes = googleMap;
         ecoPAdvogadoMarcoAntonioForte = googleMap;
         ecoPCidadeDosFuncionários = googleMap;
+        ecoSaoJoaoTauape = googleMap;
 
         // Add a marker in Sydney and move the camera
         LatLng fortaleza = new LatLng(-3.7543317, -38.5728786);
@@ -160,14 +163,13 @@ public class MapsActivity extends FragmentActivity
         mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 
         LatLng varjota = new LatLng(-3.731124, -38.483022);
-        mapEcoPointVarjota.addMarker(new MarkerOptions().position(varjota).title("Ecoponto Varjota"));
+        ecoPointVarjota.addMarker(new MarkerOptions().position(varjota).title("Ecoponto Varjota"));
 
         LatLng conjuntoCeara = new LatLng(-3.772846, -38.542742);
-        mapEcoPointConjuntoCeara.addMarker(new MarkerOptions().position(conjuntoCeara).title("Ecoponto Conjunto Ceará"));
+        ecoPointConjuntoCeara.addMarker(new MarkerOptions().position(conjuntoCeara).title("Ecoponto Conjunto Ceará"));
         //mMap1.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         // Other supported types include: MAP_TYPE_NORMAL,
         // MAP_TYPE_TERRAIN, MAP_TYPE_HYBRID and MAP_TYPE_NONE
-
 
         LatLng guararapes = new LatLng(-3.7543317, -38.5728786);
         ecoPGuararapes.addMarker(new MarkerOptions().position(guararapes).title("Ecoponto Guararapes"));
@@ -178,6 +180,8 @@ public class MapsActivity extends FragmentActivity
         LatLng cidadeDosFuncionários = new LatLng(-3.7894688, -38.4919866);
         ecoPCidadeDosFuncionários.addMarker(new MarkerOptions().position(cidadeDosFuncionários).title("Ecoponto Cidade Dos Funcionários"));
 
+        LatLng saoJoaoTauape = new LatLng(-3.7515811, -38.5207439);
+        ecoSaoJoaoTauape.addMarker(new MarkerOptions().position(saoJoaoTauape).title("Ecoponto São João do Tauape"));
 
     }
 }

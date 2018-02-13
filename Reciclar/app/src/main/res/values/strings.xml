@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Reciclar</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps">Reciclar</string>
     <string name="title_activity_recycle_main">RecycleMainActivity</string>
     <string name="title_home">EcoPonto</string>
     <string name="title_dashboard">Reciclar</string>
