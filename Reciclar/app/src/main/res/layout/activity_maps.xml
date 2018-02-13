@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="reciclar.victorsampaio.com.br.reciclar.MapsActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <!--<android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
@@ -19,7 +19,7 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
-
+-->
     <RelativeLayout
         android:id="@+id/relativeMap"
         android:layout_width="match_parent"

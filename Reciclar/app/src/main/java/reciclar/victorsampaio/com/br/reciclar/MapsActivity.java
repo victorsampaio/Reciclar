@@ -40,7 +40,8 @@ public class MapsActivity extends FragmentActivity
 
     SupportMapFragment mapFragment;
 
-    private GoogleMap mMap, mapEcoPointVarjota, mapEcoPointConjuntoCeara;
+    private GoogleMap mMap, mapEcoPointVarjota, mapEcoPointConjuntoCeara, ecoPGuararapes,
+            ecoPAdvogadoMarcoAntonioForte, ecoPCidadeDosFuncionários;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -143,6 +144,9 @@ public class MapsActivity extends FragmentActivity
         mMap = googleMap;
         mapEcoPointVarjota = googleMap;
         mapEcoPointConjuntoCeara = googleMap;
+        ecoPGuararapes = googleMap;
+        ecoPAdvogadoMarcoAntonioForte = googleMap;
+        ecoPCidadeDosFuncionários = googleMap;
 
         // Add a marker in Sydney and move the camera
         LatLng fortaleza = new LatLng(-3.7543317, -38.5728786);
@@ -151,7 +155,7 @@ public class MapsActivity extends FragmentActivity
         mMap.animateCamera(CameraUpdateFactory.zoomIn());
         // Zoom out to zoom level 10, animating with a duration of 2 seconds.
         mMap.animateCamera(CameraUpdateFactory.zoomTo(11), 2000, null);
-
+        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 
         LatLng varjota = new LatLng(-3.731124, -38.483022);
         mapEcoPointVarjota.addMarker(new MarkerOptions().position(varjota).title("Ecoponto Varjota"));
@@ -161,6 +165,17 @@ public class MapsActivity extends FragmentActivity
         //mMap1.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         // Other supported types include: MAP_TYPE_NORMAL,
         // MAP_TYPE_TERRAIN, MAP_TYPE_HYBRID and MAP_TYPE_NONE
-        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+
+
+        LatLng guararapes =new LatLng(-3.7543317, -38.5728786);
+        ecoPGuararapes.addMarker(new MarkerOptions().position(guararapes).title("Ecoponto Guararapes"));
+
+        LatLng advogadoMarcoAntonioForte = new LatLng(-3.7739257, -38.4753871);
+        ecoPAdvogadoMarcoAntonioForte.addMarker(new MarkerOptions().position(advogadoMarcoAntonioForte).title("Ecoponto Advogado MarcoAntonio Forte"));
+
+        LatLng cidadeDosFuncionários = new LatLng(-3.7894688, -38.4919866);
+        ecoPCidadeDosFuncionários.addMarker(new MarkerOptions().position(cidadeDosFuncionários).title("Ecoponto Cidade Dos Funcionários"));
+
+
     }
 }
