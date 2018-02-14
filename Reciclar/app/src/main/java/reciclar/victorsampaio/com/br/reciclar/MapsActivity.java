@@ -46,7 +46,7 @@ public class MapsActivity extends FragmentActivity
 
     private GoogleMap mMap, ecoPointVarjota, ecoPointConjuntoCeara, ecoPGuararapes,
             ecoPAdvogadoMarcoAntonioForte, ecoPCidadeDosFuncionários, ecoSaoJoaoTauape, ecoJacarecanga, ecoSerrinha,
-            ecoConjEsperanca, ecoFatima, ecoPirambu;
+            ecoConjEsperanca, ecoFatima, ecoPirambu, ecovicentePinzon;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -158,6 +158,7 @@ public class MapsActivity extends FragmentActivity
         ecoConjEsperanca = googleMap;
         ecoFatima = googleMap;
         ecoPirambu = googleMap;
+        ecovicentePinzon = googleMap;
 
         // Add a marker in Sydney and move the camera
         LatLng fortaleza = new LatLng(-3.7543317, -38.5728786);
@@ -204,6 +205,9 @@ public class MapsActivity extends FragmentActivity
 
         LatLng pirambu = new LatLng(-3.7108772, -38.5530358);
         ecoPirambu.addMarker(new MarkerOptions().position(pirambu).title("Ecoponto Pirambu"));
+
+        LatLng vicentePinzon = new LatLng(-3.7293711, -38.4719875);
+        ecovicentePinzon.addMarker(new MarkerOptions().position(vicentePinzon).title("Ecoponto Vicente Pinzon"));
 
     }
 }
