@@ -46,7 +46,7 @@ public class MapsActivity extends FragmentActivity
 
     private GoogleMap mMap, ecoPointVarjota, ecoPointConjuntoCeara, ecoPGuararapes,
             ecoPAdvogadoMarcoAntonioForte, ecoPCidadeDosFuncionários, ecoSaoJoaoTauape, ecoJacarecanga, ecoSerrinha,
-            ecoConjEsperanca, ecoFatima, ecoPirambu, ecovicentePinzon;
+            ecoConjEsperanca, ecoFatima, ecoPirambu, ecoVicentePinzon, ecoCarlitoPamplona, ecoSapiranga;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -158,7 +158,9 @@ public class MapsActivity extends FragmentActivity
         ecoConjEsperanca = googleMap;
         ecoFatima = googleMap;
         ecoPirambu = googleMap;
-        ecovicentePinzon = googleMap;
+        ecoVicentePinzon = googleMap;
+        ecoCarlitoPamplona = googleMap;
+        ecoSapiranga = googleMap;
 
         // Add a marker in Sydney and move the camera
         LatLng fortaleza = new LatLng(-3.7543317, -38.5728786);
@@ -207,7 +209,15 @@ public class MapsActivity extends FragmentActivity
         ecoPirambu.addMarker(new MarkerOptions().position(pirambu).title("Ecoponto Pirambu"));
 
         LatLng vicentePinzon = new LatLng(-3.7293711, -38.4719875);
-        ecovicentePinzon.addMarker(new MarkerOptions().position(vicentePinzon).title("Ecoponto Vicente Pinzon"));
+        ecoVicentePinzon.addMarker(new MarkerOptions().position(vicentePinzon).title("Ecoponto Vicente Pinzon"));
+
+        LatLng carlitoPamplona = new LatLng(-3.7173684, -38.556275);
+        ecoCarlitoPamplona.addMarker(new MarkerOptions().position(carlitoPamplona).title("Ecoponto Carlito Pamplona"));
+
+        LatLng sapiranga = new LatLng(-3.789023, -38.4741398);
+        ecoSapiranga.addMarker(new MarkerOptions().position(sapiranga).title("Ecoponto Sapiranga"));
+
+
 
     }
 }
