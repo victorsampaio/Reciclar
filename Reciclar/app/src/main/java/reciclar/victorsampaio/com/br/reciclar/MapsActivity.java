@@ -46,7 +46,7 @@ public class MapsActivity extends FragmentActivity
 
     private GoogleMap mMap, ecoPointVarjota, ecoPointConjuntoCeara, ecoPGuararapes,
             ecoPAdvogadoMarcoAntonioForte, ecoPCidadeDosFuncionários, ecoSaoJoaoTauape, ecoJacarecanga, ecoSerrinha,
-            ecoConjEsperanca, ecoFatima, ecoPirambu, ecoVicentePinzon, ecoCarlitoPamplona, ecoSapiranga;
+            ecoConjEsperanca, ecoFatima, ecoPirambu, ecoVicentePinzon, ecoCarlitoPamplona, ecoSapiranga, ecoPici;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -161,6 +161,7 @@ public class MapsActivity extends FragmentActivity
         ecoVicentePinzon = googleMap;
         ecoCarlitoPamplona = googleMap;
         ecoSapiranga = googleMap;
+        ecoPici = googleMap;
 
         // Add a marker in Sydney and move the camera
         LatLng fortaleza = new LatLng(-3.7543317, -38.5728786);
@@ -198,7 +199,6 @@ public class MapsActivity extends FragmentActivity
         LatLng serrinha = new LatLng(-3.7822994, -38.542956);
         ecoSerrinha.addMarker(new MarkerOptions().position(serrinha).title("Ecoponto Serrinha"));
 
-
         LatLng conjEsperança = new LatLng(-3.7515811, -38.5207439);
         ecoConjEsperanca.addMarker(new MarkerOptions().position(conjEsperança).title("Ecoponto Conjunto Esperança"));
 
@@ -217,6 +217,8 @@ public class MapsActivity extends FragmentActivity
         LatLng sapiranga = new LatLng(-3.789023, -38.4741398);
         ecoSapiranga.addMarker(new MarkerOptions().position(sapiranga).title("Ecoponto Sapiranga"));
 
+        LatLng pici = new LatLng(-3.789023, -38.4741398);
+        ecoPici.addMarker(new MarkerOptions().position(pici).title("Ecoponto Pici"));
 
 
     }
