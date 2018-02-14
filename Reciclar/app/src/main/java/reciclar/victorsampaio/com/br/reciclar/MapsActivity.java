@@ -1,8 +1,11 @@
 package reciclar.victorsampaio.com.br.reciclar;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -45,7 +48,8 @@ public class MapsActivity extends FragmentActivity
     SupportMapFragment mapFragment;
 
     private GoogleMap mMap, ecoPointVarjota, ecoPointConjuntoCeara, ecoPGuararapes,
-            ecoPAdvogadoMarcoAntonioForte, ecoPCidadeDosFuncionários, ecoSaoJoaoTauape, ecoJacarecanga;
+            ecoPAdvogadoMarcoAntonioForte, ecoPCidadeDosFuncionários, ecoSaoJoaoTauape, ecoJacarecanga, ecoSerrinha,
+            ecoConjEsperanca, ecoFatima, ecoPirambu, ecoVicentePinzon, ecoCarlitoPamplona, ecoSapiranga, ecoPici;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -153,6 +157,14 @@ public class MapsActivity extends FragmentActivity
         ecoPCidadeDosFuncionários = googleMap;
         ecoSaoJoaoTauape = googleMap;
         ecoJacarecanga = googleMap;
+        ecoSerrinha = googleMap;
+        ecoConjEsperanca = googleMap;
+        ecoFatima = googleMap;
+        ecoPirambu = googleMap;
+        ecoVicentePinzon = googleMap;
+        ecoCarlitoPamplona = googleMap;
+        ecoSapiranga = googleMap;
+        ecoPici = googleMap;
 
         // Add a marker in Sydney and move the camera
         LatLng fortaleza = new LatLng(-3.7543317, -38.5728786);
@@ -161,7 +173,24 @@ public class MapsActivity extends FragmentActivity
         mMap.animateCamera(CameraUpdateFactory.zoomIn());
         // Zoom out to zoom level 10, animating with a duration of 2 seconds.
         mMap.animateCamera(CameraUpdateFactory.zoomTo(11), 2000, null);
-        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        mMap.getUiSettings().setZoomControlsEnabled(true);
+        mMap.getUiSettings().setMyLocationButtonEnabled(true);
+        mMap.getUiSettings().setCompassEnabled(true);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        mMap.setMyLocationEnabled(true);
+
 
         LatLng varjota = new LatLng(-3.731124, -38.483022);
         ecoPointVarjota.addMarker(new MarkerOptions().position(varjota).title("Ecoponto Varjota"));
@@ -186,6 +215,30 @@ public class MapsActivity extends FragmentActivity
 
         LatLng jacarecanga = new LatLng(-3.7515811, -38.5207439);
         ecoJacarecanga.addMarker(new MarkerOptions().position(jacarecanga).title("Ecoponto Jacarecanga"));
+
+        LatLng serrinha = new LatLng(-3.7822994, -38.542956);
+        ecoSerrinha.addMarker(new MarkerOptions().position(serrinha).title("Ecoponto Serrinha"));
+
+        LatLng conjEsperança = new LatLng(-3.7515811, -38.5207439);
+        ecoConjEsperanca.addMarker(new MarkerOptions().position(conjEsperança).title("Ecoponto Conjunto Esperança"));
+
+        LatLng fatima = new LatLng(-3.7524675, -38.5327908);
+        ecoFatima.addMarker(new MarkerOptions().position(fatima).title("Ecoponto Bairro de Fatima"));
+
+        LatLng pirambu = new LatLng(-3.7108772, -38.5530358);
+        ecoPirambu.addMarker(new MarkerOptions().position(pirambu).title("Ecoponto Pirambu"));
+
+        LatLng vicentePinzon = new LatLng(-3.7293711, -38.4719875);
+        ecoVicentePinzon.addMarker(new MarkerOptions().position(vicentePinzon).title("Ecoponto Vicente Pinzon"));
+
+        LatLng carlitoPamplona = new LatLng(-3.7173684, -38.556275);
+        ecoCarlitoPamplona.addMarker(new MarkerOptions().position(carlitoPamplona).title("Ecoponto Carlito Pamplona"));
+
+        LatLng sapiranga = new LatLng(-3.789023, -38.4741398);
+        ecoSapiranga.addMarker(new MarkerOptions().position(sapiranga).title("Ecoponto Sapiranga"));
+
+        LatLng pici = new LatLng(-3.789023, -38.4741398);
+        ecoPici.addMarker(new MarkerOptions().position(pici).title("Ecoponto Pici"));
 
 
     }
